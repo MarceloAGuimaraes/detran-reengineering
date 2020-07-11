@@ -1,0 +1,2 @@
+module CheckPunctuationsHelper
+end

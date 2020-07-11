@@ -1,0 +1,8 @@
+<%= javascript_pack_tag 'negative_certificate', 'data-turbolinks-track': 'reload' %>
+<% if @message[:status] == 200 %>
+  <%== @message[:message] %>
+<% else %>
+    <h4>Ocorreu um problema !</h4>
+    <p> @message[:message]</p>
+<% end %>
+<%= link_to 'Gerar PDF', '', class: 'link-generate-pdf', data: { cpf: @cpf } %>
