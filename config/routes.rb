@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  get '/' => 'home#index', as: :home
+
   namespace :drivers do
     get :check_punctuation
     get :track_request
