@@ -13,4 +13,9 @@
  *= require bootstrap
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
+
+@import "material-dashboard.scss";
+@import "bootstrap-material-design";
+@import "detran-integration"

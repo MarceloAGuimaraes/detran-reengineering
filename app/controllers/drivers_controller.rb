@@ -1,6 +1,9 @@
 class DriversController < ApplicationController
+
+  def check_punctuation_form;end
+
   def check_punctuation
-    driver_service = DriversService.new({ cnh_type: 1, cnh_number: '07021125933', birth_date: '25/02/1999', first_cnh_date: '19/03/2018'})
+    driver_service = DriversService.new(params[:check_pontuaction])
     @message = driver_service.check_punctuation
   end
 
@@ -20,4 +23,5 @@ class DriversController < ApplicationController
       :cnh_number,
       :first_cnh_date
     )
+  end
 end
