@@ -7,6 +7,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
+require('jquery-ui')
 require('jquery-tooltip/jquery.tooltip')
 require("bootstrap-material-design")
 require('packs/material-dashboard')
@@ -18,5 +19,10 @@ require('@fortawesome/fontawesome-free')
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-
-
+$(document).ready(function(){
+  $('.datepicker').datepicker({ 
+    format: 'dd-mm-yy',
+    Altformat: 'dd-mm-yy',
+    dateFormat: 'dd/mm/yy'
+  });
+})

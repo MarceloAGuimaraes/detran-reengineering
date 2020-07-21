@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/' => 'home#index', as: :home
 
   namespace :drivers do
+    get :check_punctuation_form
     get :check_punctuation
     get :track_request
   end

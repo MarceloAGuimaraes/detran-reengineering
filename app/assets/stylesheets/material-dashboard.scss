@@ -11497,12 +11497,8 @@ fieldset[disabled] .form-group.is-focused .form-check .form-check-label {
 }
 
 .form-check .form-check-input {
-    opacity: 0;
     position: absolute;
     margin: 0;
-    z-index: -1;
-    width: 0;
-    height: 0;
     overflow: hidden;
     left: 0;
     pointer-events: none;
@@ -11704,13 +11700,6 @@ fieldset[disabled] .form-group.is-focused .form-check .form-check-label {
     -o-transform: scale3d(0, 0, 0);
     -ms-transform: scale3d(0, 0, 0);
     transform: scale3d(0, 0, 0);
-}
-
-.form-check .form-check-input {
-    opacity: 0;
-    height: 0;
-    width: 0;
-    overflow: hidden;
 }
 
 .form-check .form-check-input:checked~.check,
