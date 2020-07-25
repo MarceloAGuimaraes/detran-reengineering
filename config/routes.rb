@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :drivers do
     get :check_punctuation_form
     get :check_punctuation
+    get :track_request_form
     get :track_request
   end
 
