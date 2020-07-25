@@ -13,7 +13,7 @@ class DriversController < ApplicationController
   end
 
   def driver_service
-    DriversService.new(params[:drivers])
+    DriversService.new(drivers_params)
   end
 
   private

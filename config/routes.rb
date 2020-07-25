@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   end
 
   namespace :vehicles do
+    get :negative_certificate_form
     get :negative_certificate
+    get :unlicensed_form
     get :unlicensed
   end
   namespace :infractions do

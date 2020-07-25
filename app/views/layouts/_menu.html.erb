@@ -33,9 +33,9 @@
             <a class="nav-link">
               <p>Certidão Negativa</p>
             </a>
-            <a class="nav-link">
+            <%= link_to vehicles_unlicensed_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Não licensiado</p>
-            </a>
+            <% end %>
           </ul>
         </li>
         <li class="nav-item ">

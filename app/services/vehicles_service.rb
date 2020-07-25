@@ -2,7 +2,8 @@ class VehiclesService
   def initialize(params)
     @agent = Mechanize.new
     @params = params
-    @request_return = Hash.new
+    @params[:cpf] = @params[:cpf].remove('.', '-') if @params[:cpf].present?
+    @request_return = {}
   end
 
   def unlicensed
@@ -24,7 +25,7 @@ class VehiclesService
   end
 
   def standard_error
-    @request_return[:status], @request_return[:message]= 404, 'Ocorreu um erro na comunicação com o sistema do DETRAN - Minas Gerais. Favor entrar em contato com o suporte.'
+    @request_return[:status], @request_return[:message] = 404, '<p> Ocorreu um erro na comunicação com o sistema do DETRAN - Minas Gerais. Favor entrar em contato com o suporte. <p>'
   end
 
   def negative_certificate
