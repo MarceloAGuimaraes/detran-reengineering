@@ -21338,6 +21338,11 @@ fieldset[disabled][disabled] .dark-edition .has-white .form-control,
     border-radius: .2rem;
 }
 
+element.style {
+}
+.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:active {
+    color: white !important;
+}
 .was-validated .dark-edition .has-white .is-focused .form-control:valid,
 .dark-edition .has-white .is-focused .form-control.is-valid,
 .was-validated .dark-edition .has-white .is-focused .custom-select:valid,
