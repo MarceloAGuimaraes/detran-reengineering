@@ -62,11 +62,6 @@
     // check if there is an image set for the sidebar's background
     md.checkSidebarImage();
   
-    //    Activate bootstrap-select
-    if ($(".selectpicker").length != 0) {
-      $(".selectpicker").selectpicker();
-    }
-  
     //  Activate the tooltips
     $('[rel="tooltip"]').tooltip();
   
