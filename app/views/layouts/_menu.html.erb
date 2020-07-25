@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-background-color="black" data-turbolinks-permanent>
+<aside id='aside-menu' class="sidebar" data-color="purple" data-background-color="black" data-turbolinks-permanent>
     <div class="logo"><a class="simple-text logo-normal">
         Serviços Detran
       </a></div>
@@ -16,12 +16,12 @@
             <p>Habilitação</p>
           </a>
           <ul class="collapse nav-item" id="drivers-collapse">
-            <%= link_to drivers_check_punctuation_form_path, class: "nav-link", 'data-turbolinks': false do %>
+            <%= link_to drivers_check_punctuation_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Consultar Pontuação</p>
             <% end %>
-            <a class="nav-link">
+            <%= link_to drivers_track_request_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Entrega da CNH</p>
-            </a>
+            <% end %>
           </ul>
         </li>
         <li class="nav-item ">
@@ -54,4 +54,4 @@
         </li>
       </ul>
     </div>
-</div>
+</aside>

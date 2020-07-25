@@ -2,22 +2,14 @@
   <div class="col-md-8">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h4 class="card-title">Consultar pontuação</h4>
+        <h4 class="card-title">Consulta Emissão de CNH</h4>
         <p class="card-category">Insira as informações</p>
       </div>
       <div class="card-body">
-        <%= simple_form_for :drivers, url: drivers_check_punctuation_path, method: :get, remote: true do |f| %>
+        <%= simple_form_for :drivers, url: drivers_track_request_path, method: :get, remote: true do |f| %>
           <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <%= f.input :cnh_type, label: 'Versão da CNH', as: :radio_buttons, collection: [['1', 'Nova'], ['2', 'Antiga']], label_method: :second, value_method: :first, wrapper: :vertical_collection_inline, class: 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating">Número da CNH</label>
-                <%= f.input :cnh_number, label: false, as: :string, input_html: { maxlength: 11, class: 'form-control' }%>
-              </div>
+            <div class="col-md-12">
+              <%= f.input :service_type, label: false, as: :select, collection: Detran.services_types, label_method: :second, value_method: :first, input_html: { class: 'selectpicker' } %>
             </div>
           </div>
           <div class="row">
@@ -27,11 +19,10 @@
                 <%= f.input :birth_date, label: false, as: :string, input_html: { class: 'form-control datepicker'} %>
               </div>
             </div>
-
             <div class="col-md-5">
               <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating">Date da primeira CNH</label>
-                <%= f.input :first_cnh_date, label: false, as: :string, input_html: { class: 'form-control datepicker'} %>
+                <label class="bmd-label-floating">CPF</label>
+                <%= f.input :cpf, label: false, as: :string %>
               </div>
             </div>
           </div>
@@ -51,7 +42,9 @@
         <h6 class="card-category">Documento: Carteira Nacional de Habilitação (CNH).</h6>
         <h4 class="card-title">Descrição</h4>
         <p class="card-description">
-          O condutor que deseja consultar sua pontuação basta preencher o formulário eletrônico abaixo e clicar em "pesquisar".
+        Acompanhe aqui os serviços solicitados referentes à Carteira Nacional de Habilitação (CNH).
+        No formulário, selecione o serviço que foi solicitado e preencha o número de CPF e data de nascimento;
+        Clique em "pesquisar" para visualizar o resultado.
         </p>
       </div>
     </div>
@@ -59,6 +52,6 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12" id="pontuation-result">
+  <div class="col-md-12" id="track-request-result">
   </div>
 </div>
