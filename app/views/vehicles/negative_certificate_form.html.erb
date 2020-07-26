@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">CERTIDÃO NEGATIVA DE PROPRIEDADE</h4>
+        <p class="card-category">Insira as informações</p>
+      </div>
+      <div class="card-body">
+        <%= simple_form_for :vehicles, url: vehicles_negative_certificate_path, method: :get, remote: true do |f| %>
+          <%= hidden_field_tag :selecionar_gerar_validar, '1' %>
+          <div class="row">
+            <div class="col-md-5">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">Nome</label>
+                <%= f.input :nome, label: false, as: :string, input_html: { maxlength: 300, minlength: 1 }, required: true %>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">CPF</label>
+                <%= f.input :cpf, label: false, as: :string, input_html: { maxlength: 14, minlength: 11 }, required: true %>
+              </div>
+            </div>
+          </div>
+          <%= f.submit "Gerar", class: "btn btn-primary pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="#detran-mg">
+          <%= image_tag(ActionController::Base.helpers.asset_path("detran-mg.jpg")) %>
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category">Documento: Carteira de Identidade atualizada ou documento equivalente com CPF.</h6>
+        <h4 class="card-title">Descrição</h4>
+        <p class="card-description">
+          A Certidão Negativa de Propriedade de Veículo Automotor é um documento informativo que comprova a inexistência de veículo registrado em Minas Gerais em nome de uma determinada pessoa física.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12" id="negative-certificate-result">
+  </div>
+</div>

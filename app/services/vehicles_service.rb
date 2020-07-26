@@ -6,6 +6,10 @@ class VehiclesService
     @request_return = {}
   end
 
+  def cpf
+    @params[:cpf]
+  end
+
   def unlicensed
     # Get in the form page
     page = @agent.get('https://www.detran.mg.gov.br/veiculos/situacao-do-veiculo/motivo-de-nao-licenciamento/-/consulta_motivo_nao_licenciamento_veiculo/')

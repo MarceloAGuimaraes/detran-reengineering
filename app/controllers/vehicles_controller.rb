@@ -9,6 +9,7 @@ class VehiclesController < ApplicationController
 
   def negative_certificate
     @message = vehicle_service.negative_certificate
+    @cpf = vehicle_service.cpf
   end
 
   def vehicle_service
