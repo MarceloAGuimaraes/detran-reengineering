@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Resultado de Infração</h4>
+        <p class="card-category">Insira as informações</p>
+        <h4> Preencha somente uma das colunas ! </h4>
+      </div>
+      <div class="card-body">
+        <%= simple_form_for :infractions, url: infractions_infraction_result_path, method: :get, remote: true do |f| %>
+          <div class="row">
+            <div class="col-md-10">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">Chassi</label>
+                <%= f.input :chassi, label: false, as: :string, input_html: { maxlength: 17, minlength: 17 } %>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">Placa</label>
+                <%= f.input :plate, label: false, as: :string, input_html: { maxlength: 7, minlength: 7 } %>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <%= f.submit "Pesquisar", name: 'by_plate', class: "btn btn-primary pull-right" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">Renavam</label>
+                <%= f.input :renavam, label: false, as: :string, input_html: { maxlength: 11, minlength: 9 } %>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="form-group bmd-form-group">
+                <label class="bmd-label-floating">Número Procedimento</label>
+                <%= f.input :number, label: false, as: :string %>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <%= f.submit "Pesquisar", name: 'by_number', class: "btn btn-primary pull-right" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="#detran-mg">
+          <%= image_tag(ActionController::Base.helpers.asset_path("detran-mg.jpg")) %>
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category">Documento: Certificado de Registro e Licenciamento de Veículo (CRLV).</h6>
+        <h4 class="card-title">Descrição</h4>
+        <p class="card-description">
+          Para consultar o resultado do procedimento de indicação do condutor infrator, preencha o formulário com dados da placa e do chassi do veículo ou com o número do procedimento e do renavam.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12" id="infraction-result">
+  </div>
+</div>

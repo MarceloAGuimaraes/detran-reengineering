@@ -14,16 +14,16 @@
   </head>
 
   <body class="dark-edition">
-    <div class="wrapper ">
+    <main class="wrapper ">
       <%= render 'layouts/menu' %>
-      <div class="main-panel">
+      <section class="main-panel">
         <%= render 'layouts/navbar' %>
         <div class="content">
           <div class="container-fluid">
             <%= yield %>
           <div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </body>
 </html>

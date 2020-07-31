@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'negative_certificate', 'data-turbolinks-track': 'reload' %>
+<div class="card">
+    <div class="card-header card-header-primary">
+      <h4 class="card-title">Resultado da consulta</h4>
+    </div>
+    <div class="card-body">
+		<div class="row">
+      <%== @message[:message] %>
+      <% if action_name == 'negative_certificate' && @message[:status] == 200 %>
+        <%= link_to 'Gerar PDF', '', class: 'btn btn-primary link-generate-pdf', data: { cpf: @cpf } %>
+      <% end %>
+		</div>
+	</div>
+</div>

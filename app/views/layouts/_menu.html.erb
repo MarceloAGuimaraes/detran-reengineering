@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-background-color="black" data-turbolinks-permanent>
+<aside id='aside-menu' class="sidebar" data-color="purple" data-background-color="black" data-turbolinks-permanent>
     <div class="logo"><a class="simple-text logo-normal">
         Serviços Detran
       </a></div>
@@ -16,12 +16,12 @@
             <p>Habilitação</p>
           </a>
           <ul class="collapse nav-item" id="drivers-collapse">
-            <%= link_to drivers_check_punctuation_form_path, class: "nav-link", 'data-turbolinks': false do %>
+            <%= link_to drivers_check_punctuation_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Consultar Pontuação</p>
             <% end %>
-            <a class="nav-link">
+            <%= link_to drivers_track_request_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Entrega da CNH</p>
-            </a>
+            <% end %>
           </ul>
         </li>
         <li class="nav-item ">
@@ -30,12 +30,12 @@
             <p>Veículos</p>
           </a>
           <ul class="collapse nav-item" id="vehicles-collapse">
-            <a class="nav-link">
+            <%= link_to vehicles_negative_certificate_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Certidão Negativa</p>
-            </a>
-            <a class="nav-link">
+            <% end %>
+            <%= link_to vehicles_unlicensed_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Não licensiado</p>
-            </a>
+            <% end %>
           </ul>
         </li>
         <li class="nav-item ">
@@ -44,14 +44,15 @@
             <p>Infrações</p>
           </a>
           <ul class="collapse nav-item" id="infractions-collapse">
-            <a class="nav-link">
-              <p>Resultado</p>
+            <%= link_to infractions_infraction_result_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+              <p>Resultado - Pontuação</p>
+            <% end %>
             </a>
             <a class="nav-link">
-              <p>Defesa de Autuação</p>
+              <p>Resultado - Autuação</p>
             </a>
           </ul>
         </li>
       </ul>
     </div>
-</div>
+</aside>
