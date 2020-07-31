@@ -16,7 +16,7 @@ class InfractionsController < ApplicationController
   private
 
   def infraction_service
-    InfractionsService.new(infractions_params)
+    InfractionsService.new(infractions_params.merge({by_plate: params[:by_plate].present? }))
   end
 
   def infractions_params
