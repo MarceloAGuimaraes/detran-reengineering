@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header card-header-primary">
+    <h4 class="card-title">Resultado da consulta</h4>
+  </div>
+  <div class="card-body">
+	  <div class="row">
+      <% if @message[:status] == 200 %>
+        <%== @message[:message] %>
+      <% else %>
+          <h4>Ocorreu um problema !</h4>
+          <p> @message[:message]</p>
+      <% end %>
+    </div>
+  </div>
+</div>

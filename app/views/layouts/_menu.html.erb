@@ -44,11 +44,12 @@
             <p>Infrações</p>
           </a>
           <ul class="collapse nav-item" id="infractions-collapse">
-            <a class="nav-link">
-              <p>Resultado</p>
+            <%= link_to infractions_infraction_result_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+              <p>Resultado - Pontuação</p>
+            <% end %>
             </a>
             <a class="nav-link">
-              <p>Defesa de Autuação</p>
+              <p>Resultado - Autuação</p>
             </a>
           </ul>
         </li>

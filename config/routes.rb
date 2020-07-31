@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     get :unlicensed
   end
   namespace :infractions do
+    get :assessment_defense_form
     get :assessment_defense
+    get :infraction_result_form
     get :infraction_result
   end
 end
