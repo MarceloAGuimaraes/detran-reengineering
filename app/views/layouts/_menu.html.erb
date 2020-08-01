@@ -47,10 +47,9 @@
             <%= link_to infractions_infraction_result_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Resultado - Pontuação</p>
             <% end %>
-            </a>
-            <a class="nav-link">
+            <%= link_to infractions_assessment_defense_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
               <p>Resultado - Autuação</p>
-            </a>
+            <% end %>
           </ul>
         </li>
       </ul>

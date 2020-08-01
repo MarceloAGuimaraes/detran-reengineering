@@ -19,19 +19,21 @@
 
 .simple_form{
     &.infractions{
-        .row{
-            position: relative;
-            display: flex;
-        }
-        .row:nth-child(1){
-            width: 49%;
-            border-right-style: inset;
-            float: left;
-            border-right-color: #6610f2;
-        }
-        .row:nth-child(2){
-            width: 50%;
-            float: right;
+        &#infraction-result-form {
+            .row{
+                position: relative;
+                display: flex;
+            }
+            .row:nth-child(1){
+                width: 49%;
+                border-right-style: inset;
+                float: left;
+                border-right-color: #6610f2;
+            }
+            .row:nth-child(2){
+                width: 50%;
+                float: right;
+            }
         }
     }
 }

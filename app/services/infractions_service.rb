@@ -33,9 +33,9 @@ class InfractionsService
 
   def assessment_defense
     page = @agent.get('https://www.detran.mg.gov.br/infracoes/autuacoes/defesa-de-autuacao-detran-mg')
-    if @params[:by_plate]
+    if @params[:plate].present?
       page.forms.second.field_with(name: 'data[ConsultaDefesasVeiculoCpfCnpj][placa]').value = @params[:plate]
-    elsif @params[:by_defense_number]
+    elsif @params[:defense_number].present?
       page.forms.second.field_with(name: 'data[ConsultaDefesasVeiculoCpfCnpj][numero_defesa]').value = @params[:defense_number]
     else
       page.forms.second.field_with(name: 'data[ConsultaDefesasVeiculoCpfCnpj][cpf_cnpj]').value = @params[:document_number]
