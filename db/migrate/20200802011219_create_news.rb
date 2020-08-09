@@ -3,7 +3,8 @@ class CreateNews < ActiveRecord::Migration[6.0]
     create_table :news do |t|
       t.string :content
       t.date :date
-      t.string :erros, default: nil
+      t.string :link
+      t.string :log_error, default: nil
       t.timestamps
     end
   end

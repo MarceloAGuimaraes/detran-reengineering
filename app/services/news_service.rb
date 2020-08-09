@@ -6,6 +6,21 @@ class NewsService
     }
     end
 
+    def update_text_news
+      page = @agent.get('https://www.detran.mg.gov.br/sobre-o-detran/comunicados/noticias')
+      current_leading = page.xpath("//*[@id='conteudo']//*[@class='category']//tbody//tr")
+      current_leading.each do |t|
+        begin 
+          notice = New.new
+          notice.content = t.css('td')[0].css('a').inner_text.strip!
+          notice.link = t.css('td')[0].css('a').attribute('href').value
+          notice.date = t.css('td')[1].inner_text.strip!
+          notice.save!
+        rescue => e
+          New.create(log_error: e.message)
+        end
+      end
+    end
 
     def update_img_news
       page = @agent.get('https://www.detran.mg.gov.br/')

@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2020_08_02_011219) do
   create_table "news", force: :cascade do |t|
     t.string "content"
     t.date "date"
-    t.string "erros"
+    t.string "link"
+    t.string "log_error"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
