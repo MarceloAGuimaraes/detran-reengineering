@@ -26,8 +26,8 @@ $(document).ready(function(){
     Altformat: 'dd-mm-yy',
     dateFormat: 'dd/mm/yy'
   });
-  $('img-news-0', 'img-news-1', 'img-news-2').off('click');
-  $('img-news-0', 'img-news-1', 'img-news-2').on('click', function(){
+  $('.carousel-item img').off('click');
+  $('.carousel-item img').on('click', function(){
     window.open(`https://www.detran.mg.gov.br`);
   });
   $(".selectpicker").selectpicker({
