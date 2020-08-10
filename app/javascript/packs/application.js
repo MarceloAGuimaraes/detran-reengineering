@@ -19,7 +19,7 @@ require('bootstrap-select')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+DETRAN_HOST = 'https://www.detran.mg.gov.br'
 $(document).ready(function(){
   $('.datepicker').datepicker({ 
     format: 'dd-mm-yy',
@@ -29,6 +29,11 @@ $(document).ready(function(){
   $('.carousel-item img').off('click');
   $('.carousel-item img').on('click', function(){
     window.open(`https://www.detran.mg.gov.br`);
+  });
+  $('.noticias-alert').css('cursor', 'pointer');
+  $('.noticias-alert').off('click');
+  $('.noticias-alert').on('click', function(){
+    window.open(`${DETRAN_HOST}${$(this).data('link')}`);
   });
   $(".selectpicker").selectpicker({
     showIcon: true,
