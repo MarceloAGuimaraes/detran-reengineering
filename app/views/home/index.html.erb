@@ -7,13 +7,13 @@
       </a>
       <div class="carousel-inner col-10">
         <div class="carousel-item active">
-          <%= image_tag "img-news-0", class: 'd-block w-100', alt: 'First slide' %>
+          <img src="data:image/png;base64,<%= @b64_images.first  %>" alt="First slide" class='d-block w-100'/>
         </div>
         <div class="carousel-item">
-          <%= image_tag "img-news-1", class: 'd-block w-100', alt: 'First slide' %>
+          <img src="data:image/png;base64,<%= @b64_images.second  %>" alt="Second slide" class='d-block w-100'/>
         </div>
         <div class="carousel-item">
-          <%= image_tag "img-news-2", class: 'd-block w-100', alt: 'First slide' %>
+          <img src="data:image/png;base64,<%= @b64_images.third  %>" alt="Third slide" class='d-block w-100'/>
         </div>
       </div>
       <a class="carousel-control-next col-1" href="#home-news" role="button" data-slide="next">
