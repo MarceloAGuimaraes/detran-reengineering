@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+user = User.create!(
+  name: 'Marcelo Antônio Fernandes Guimarães',
+  cpf: '113.721.706-50',
+  email: 'mafguiamaraes@sga.pucminas.br',
+  birth_date: '25/02/1999',
+  password: 'computador'
+)
+License.create!(
+  cnh_type: 1,
+  first_cnh_date: '19/03/2018',
+  cnh_number: '07021125933',
+  user_id: user.id
+)
