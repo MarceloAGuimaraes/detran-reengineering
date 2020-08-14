@@ -5,7 +5,7 @@
     <div class="sidebar-wrapper">
       <ul class="nav accordion">
         <li class="nav-item active  ">
-          <a class="nav-link">
+          <a class="nav-link goForm">
             <i class="material-icons">dashboard</i>
             <p>Notícias</p>
           </a>
@@ -16,10 +16,10 @@
             <p>Habilitação</p>
           </a>
           <ul class="collapse nav-item" id="drivers-collapse">
-            <%= link_to drivers_check_punctuation_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+            <%= link_to drivers_check_punctuation_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Consultar Pontuação</p>
             <% end %>
-            <%= link_to drivers_track_request_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+            <%= link_to drivers_track_request_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Entrega da CNH</p>
             <% end %>
           </ul>
@@ -30,10 +30,10 @@
             <p>Veículos</p>
           </a>
           <ul class="collapse nav-item" id="vehicles-collapse">
-            <%= link_to vehicles_negative_certificate_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+            <%= link_to vehicles_negative_certificate_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Certidão Negativa</p>
             <% end %>
-            <%= link_to vehicles_unlicensed_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+            <%= link_to vehicles_unlicensed_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Não licensiado</p>
             <% end %>
           </ul>
@@ -44,10 +44,10 @@
             <p>Infrações</p>
           </a>
           <ul class="collapse nav-item" id="infractions-collapse">
-            <%= link_to infractions_infraction_result_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+            <%= link_to infractions_infraction_result_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Resultado - Pontuação</p>
             <% end %>
-            <%= link_to infractions_assessment_defense_form_path, class: "nav-link", data: { turbolinks: 'false', no_turbolink: 'true' } do %>
+            <%= link_to infractions_assessment_defense_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Resultado - Autuação</p>
             <% end %>
           </ul>

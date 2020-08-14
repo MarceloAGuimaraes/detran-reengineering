@@ -16,7 +16,7 @@
   <body class="dark-edition">
     <main class="wrapper ">
       <%= render 'layouts/menu' %>
-      <section class="main-panel">
+      <section id="main" class="main-panel">
         <%= render 'layouts/navbar' %>
         <div class="content">
           <div class="container-fluid">
@@ -25,5 +25,7 @@
         </div>
       </section>
     </main>
+
+    <%= yield :javascript %>
   </body>
 </html>

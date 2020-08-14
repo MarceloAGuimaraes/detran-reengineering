@@ -56,9 +56,13 @@
     $sidebar = $('.sidebar');
   
     md.initSidebarsCheck();
-  
     window_width = $(window).width();
-  
+
+    $('.goForm').off('click');
+    $('.goForm').on('click', function(){
+      $('.nav.accordion').find('.nav-item').removeClass('active');
+      $(this).parents('li.nav-item').addClass('active');
+    });
     // check if there is an image set for the sidebar's background
     md.checkSidebarImage();
   
@@ -306,7 +310,6 @@
       $sidebar_wrapper = $('.sidebar-wrapper');
   
       if (!mobile_menu_initialized) {
-        console.log('intra');
         $navbar = $('nav').find('.navbar-collapse').children('.navbar-nav');
   
         mobile_menu_content = '';
