@@ -40,4 +40,9 @@ $(document).ready(function(){
     showSubtext: false,
     noneSelectedText: "Selecione um serviço"
   });
+
+  $('#close').off('click');
+  $('#close').on('click', function(){
+    $(this).parents('#record-modal').removeClass('active');
+  });
 })

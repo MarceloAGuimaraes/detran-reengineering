@@ -47,6 +47,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :plate, null: false
       t.string :chassi, null: false
       t.string :renavam, null: false
+      t.string :model
+      t.string :color
       t.belongs_to :user, index: true
     end
     add_index :users, :email, unique: true

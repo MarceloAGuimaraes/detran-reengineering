@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_193429) do
     t.string "plate", null: false
     t.string "chassi", null: false
     t.string "renavam", null: false
+    t.string "model"
+    t.string "color"
     t.bigint "user_id"
     t.index ["chassi"], name: "index_vehicles_on_chassi", unique: true
     t.index ["plate"], name: "index_vehicles_on_plate", unique: true

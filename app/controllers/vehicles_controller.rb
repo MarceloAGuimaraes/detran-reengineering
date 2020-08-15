@@ -1,4 +1,24 @@
 class VehiclesController < ApplicationController
+  before_action :authenticate_user!, only: %i[index]
+  def index
+    @vehicles = current_user.vehicles
+  end
+
+  def new
+    @vehicle = Vehicle.new
+  end
+
+  def create
+    @vehicle = Vehicle.new(vehicles_params(:vehicle))
+    @vehicle.user = current_user
+    if @vehicle.save!
+      @vehicles = current_user.vehicles
+      render 'index'
+    else
+      render 'new'
+    end
+  end
+
   def unlicensed
     @message = vehicle_service.unlicensed
   end
@@ -13,14 +33,16 @@ class VehiclesController < ApplicationController
   end
 
   def vehicle_service
-    VehiclesService.new(vehicles_params)
+    VehiclesService.new(vehicles_params(:vehicles))
   end
 
   private
 
-  def vehicles_params
-    params.require(:vehicles).permit(
+  def vehicles_params(named)
+    params.require(named).permit(
       :placa,
+      :plate,
+      :model,
       :chassi,
       :renavam,
       :cpf,

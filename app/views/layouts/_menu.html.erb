@@ -33,7 +33,7 @@
             <%= link_to vehicles_negative_certificate_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Certidão Negativa</p>
             <% end %>
-            <%= link_to vehicles_unlicensed_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
+            <%= link_to vehicles_unlicensed_form_path, class: "nav-link goForm",'data-turbolinks': true, method: :get do %>
               <p>Não licensiado</p>
             <% end %>
           </ul>
@@ -52,6 +52,14 @@
             <% end %>
           </ul>
         </li>
+        <% if current_user.present? %>
+          <li class="nav-item ">
+            <%= link_to vehicles_path, class: "nav-link goForm", 'data-turbolinks': true do %>
+              <i class="material-icons">content_paste</i>
+              <p>Meus Veículos</p>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
 </aside>

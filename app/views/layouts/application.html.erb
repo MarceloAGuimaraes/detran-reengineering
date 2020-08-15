@@ -27,6 +27,17 @@
       </section>
     </main>
 
+    <div id="record-modal" class="side-modal mdc-elevation--z3">
+      <div class="title">
+        <span id="action"></span>
+        <a id="close"><span class="material-icons">close</span></a>
+      </div>
+      <div id="record_box"></div>
+      <div id="children-content" class="side-modal-inner">
+      </div>
+    </div>
+
+    <%= yield :modal %>
     <%= yield :javascript %>
   </body>
 </html>
