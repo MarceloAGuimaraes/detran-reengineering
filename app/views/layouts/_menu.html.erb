@@ -1,4 +1,4 @@
-<aside id='aside-menu' class="sidebar" data-color="purple" data-background-color="black" data-turbolinks-permanent>
+<aside id='aside-menu' class="sidebar" data-color="purple" data-background-color="black" data-controller="material-dashboard" data-turbolinks-permanent>
     <div class="logo"><a class="simple-text logo-normal">
         Serviços Detran
       </a></div>
@@ -33,7 +33,7 @@
             <%= link_to vehicles_negative_certificate_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Certidão Negativa</p>
             <% end %>
-            <%= link_to vehicles_unlicensed_form_path, class: "nav-link goForm",'data-turbolinks': true, method: :get do %>
+            <%= link_to vehicles_unlicensed_form_path, class: "nav-link goForm",'data-turbolinks': true do %>
               <p>Não licensiado</p>
             <% end %>
           </ul>

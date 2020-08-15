@@ -2,15 +2,22 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
+
+const application = Application.start()
+const context = require.context("../controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
+require("bootstrap-material-design");
 require('jquery-ui')
 require('jquery-tooltip/jquery.tooltip')
-require("bootstrap-material-design")
-require('packs/material-dashboard')
 require('@fortawesome/fontawesome-free')
 require('bootstrap-select')
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -19,36 +26,9 @@ require('bootstrap-select')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-DETRAN_HOST = 'https://www.detran.mg.gov.br'
 $(document).ready(function(){
-  $('.datepicker').datepicker({ 
-    format: 'dd-mm-yy',
-    Altformat: 'dd-mm-yy',
-    dateFormat: 'dd/mm/yy'
-  });
-  $('.carousel-item img').off('click');
-  $('.carousel-item img').on('click', function(){
-    window.open(`https://www.detran.mg.gov.br`);
-  });
-  $('.noticias-alert').css('cursor', 'pointer');
-  $('.noticias-alert').off('click');
-  $('.noticias-alert').on('click', function(){
-    window.open(`${DETRAN_HOST}${$(this).data('link')}`);
-  });
-  $(".selectpicker").selectpicker({
-    showIcon: true,
-    showSubtext: false,
-    noneSelectedText: "Selecione um serviço"
-  });
+})
 
-  $('#close').off('click');
-  $('#close').on('click', function(){
-    $(this).parents('#record-modal').removeClass('active');
-  });
-
-  $('.simple_form.vehicles #myInfos').off('click');
-  $('.simple_form.vehicles #myInfos').on('click', function(){
-    $('#vehicles_nome').val($(this).data('nome'));
-    $('#vehicles_cpf').val($(this).data('cpf'));
-  });
+$(document).on("turbolinks:load", function() {
+  $('body').bootstrapMaterialDesign();
 })

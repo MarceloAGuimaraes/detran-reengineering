@@ -7,6 +7,14 @@
       </div>
       <div class="card-body">
         <%= simple_form_for :vehicles, url: vehicles_unlicensed_path, method: :get, remote: true do |f| %>
+          <% if current_user.present? %>
+            <div class="row">
+              <div class="col-md-12">  
+                <label>Use dados de um de seus veículos cadastrados</label>
+                <%= f.input :service_type, label: false, as: :select, collection: current_user.vehicles.pluck(:id, :model), label_method: :second, value_method: :first, input_html: { class: 'selectpicker' } %>
+              </div>
+            </div>
+          <% end %>
           <div class="row">
             <div class="col-md-5">
               <div class="form-group bmd-form-group">
