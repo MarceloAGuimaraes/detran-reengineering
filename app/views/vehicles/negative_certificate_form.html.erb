@@ -8,6 +8,13 @@
       <div class="card-body">
         <%= simple_form_for :vehicles, url: vehicles_negative_certificate_path, method: :get, remote: true do |f| %>
           <%= hidden_field_tag :selecionar_gerar_validar, '1' %>
+          <% if current_user.present? %>
+            <div class="row">
+              <div class="col-md-12">
+                <input type="radio" id="myInfos" data-cpf=<%= current_user.cpf %> data-nome="<%= current_user.name %>">Clique aqui para usar suas informações de cadastro.
+              </div>
+            </div>
+          <% end %>
           <div class="row">
             <div class="col-md-5">
               <div class="form-group bmd-form-group">

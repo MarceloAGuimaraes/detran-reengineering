@@ -45,4 +45,10 @@ $(document).ready(function(){
   $('#close').on('click', function(){
     $(this).parents('#record-modal').removeClass('active');
   });
+
+  $('.simple_form.vehicles #myInfos').off('click');
+  $('.simple_form.vehicles #myInfos').on('click', function(){
+    $('#vehicles_nome').val($(this).data('nome'));
+    $('#vehicles_cpf').val($(this).data('cpf'));
+  });
 })
