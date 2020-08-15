@@ -1,6 +1,6 @@
 .side-modal {
   align-items: flex-start;
-  background-color: white;
+  background-color: gray;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -90,13 +90,7 @@
     width: 100%;
 
     span {
-      //color: blueviolet;
       display: block;
-      //font-family: $font-bold;
-      font-size: 16px;
-      line-height: 18px;
-      width: 100%;
-
       small {
         //color: gray;
         display: block;

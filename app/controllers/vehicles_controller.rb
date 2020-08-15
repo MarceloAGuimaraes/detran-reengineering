@@ -1,11 +1,24 @@
 class VehiclesController < ApplicationController
-  before_action :authenticate_user!, only: %i[index]
+  before_action :authenticate_user!, only: %i[index new create destroy]
+  before_action 
   def index
     @vehicles = current_user.vehicles
   end
 
   def new
     @vehicle = Vehicle.new
+  end
+
+  def destroy
+    @vehicle = Vehicle.find(params[:id])
+    @vehicles = current_user.vehicles
+    respond_to do |format|
+      if @vehicle.destroy
+        flash[:error] = 'Deleted'
+        format.html { redirect_to request.referer, status: 303  }
+        format.js { redirect_to request.referer, status: 303  }
+      end
+    end
   end
 
   def create

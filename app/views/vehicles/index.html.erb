@@ -30,7 +30,11 @@
                         <td><%= vehicle.renavam %></td>
                         <td><%= vehicle.color %></td>
                         <td class="text-primary">
-                          Deletar
+                          <%= link_to vehicle, method: :delete, 'data-turbolinks': true do %>
+                            <span class="material-icons">
+                              delete
+                            </span>
+                          <% end %>
                         </td>
                       </tr>
                     <% end %>
