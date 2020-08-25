@@ -36,7 +36,10 @@ class VehiclesController < ApplicationController
     @message = vehicle_service.unlicensed
   end
 
-  def unlicensed_form; end
+  def unlicensed_form
+    serializar = proc { |x| x.serializable_hash.except('model', 'color', 'user_id') }
+    @vehiclesJSON = current_user.vehicles.each(&serializar).to_json
+  end
 
   def negative_certificate_form; end
 
