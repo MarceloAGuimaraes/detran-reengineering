@@ -8,10 +8,10 @@
 user = User.create!(
   name: 'Marcelo Antônio Fernandes Guimarães',
   cpf: '113.721.706-50',
-  email: 'mafguiamaraes@sga.pucminas.br',
+  email: 'mafguimaraes@sga.pucminas.br',
   birth_date: '25/02/1999',
   password: 'computador',
-  password_confirmation: 'computador',
+  password_confirmation: 'computador'
 )
 License.create!(
   cnh_type: 1,
