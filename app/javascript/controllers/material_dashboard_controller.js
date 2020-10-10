@@ -17,9 +17,8 @@ export default class MaterialDashboardController extends Controller{
     
     var transparentDemo = true;
     var fixedTop = false;
-    
+    var mobile_menu_initialized = false;
     var mobile_menu_visible = 0,
-      mobile_menu_initialized = false,
       toggle_initialized = false,
       bootstrap_nav_initialized = false;
     
@@ -161,6 +160,7 @@ export default class MaterialDashboardController extends Controller{
       },
     
       initSidebarsCheck: function() {
+        let sidebar = $('.sidebar');
         if ($(window).width() <= 991) {
           if (sidebar.length != 0) {
             md.initRightMenu();
@@ -302,26 +302,26 @@ export default class MaterialDashboardController extends Controller{
     
       initRightMenu: this.debounce(function() {
     
-        $sidebar_wrapper = $('.sidebar-wrapper');
-    
+        var sidebar_wrapper = $('.sidebar-wrapper');
+        var mobile_menu_initialized = true;
         if (!mobile_menu_initialized) {
-          $navbar = $('nav').find('.navbar-collapse').children('.navbar-nav');
+          var navbar = $('nav').find('.navbar-collapse').children('.navbar-nav');
     
-          mobile_menu_content = '';
+          var mobile_menu_content = '';
     
-          nav_content = $navbar.html();
+          nav_content = navbar.html();
     
           nav_content = '<ul class="nav navbar-nav nav-mobile-menu">' + nav_content + '</ul>';
     
           navbar_form = $('nav').find('.navbar-form').length != 0 ? $('nav').find('.navbar-form')[0].outerHTML : null;
     
-          $sidebar_nav = $sidebar_wrapper.find(' > .nav');
+          var sidebar_nav = sidebar_wrapper.find(' > .nav');
     
           // insert the navbar form before the sidebar list
           $nav_content = $(nav_content);
           $navbar_form = $(navbar_form);
-          $nav_content.insertBefore($sidebar_nav);
-          $navbar_form.insertBefore($nav_content);
+          $nav_content.insertBefore(sidebar_nav);
+          $navbar_form.insertBefore(nav_content);
     
           $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
             event.stopPropagation();
@@ -335,8 +335,8 @@ export default class MaterialDashboardController extends Controller{
         } else {
           if ($(window).width() > 991) {
             // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
-            $sidebar_wrapper.find('.navbar-form').remove();
-            $sidebar_wrapper.find('.nav-mobile-menu').remove();
+            sidebar_wrapper.find('.navbar-form').remove();
+            sidebar_wrapper.find('.nav-mobile-menu').remove();
     
             mobile_menu_initialized = false;
           }

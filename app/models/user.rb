@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :vehicles
   has_one :license
+
+  def to_s
+    name
+  end
 end
