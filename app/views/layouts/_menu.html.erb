@@ -4,6 +4,20 @@
       </a></div>
     <div class="sidebar-wrapper">
       <ul class="nav accordion">
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <% if current_user.present? %>
+              <i class="d-lg-none d-md-block material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            <% else %>
+              <p class="d-lg-none d-md-block">
+                Login
+              </p>
+            <% end%>
+          <% end %>
+        </li>
         <li class="nav-item active  ">
           <%= link_to root_path, class: "nav-link goForm", 'data-turbolinks': true do %>
             <i class="material-icons">dashboard</i>
