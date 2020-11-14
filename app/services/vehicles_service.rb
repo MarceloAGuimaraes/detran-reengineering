@@ -29,15 +29,16 @@ class VehiclesService
   end
 
   def standard_error
-    @request_return[:status], @request_return[:message] = 404, '<p> Ocorreu um erro na comunicação com o sistema do DETRAN - Minas Gerais. Favor entrar em contato com o suporte. <p>'
+    @request_return[:status], @request_return[:message] = 404, '<p> Não foi encontrado nenhum registro para os dados informados. <p>'
   end
 
   def negative_certificate
     # Get in the form page
     page = @agent.get('https://www.detran.mg.gov.br/veiculos/certidoes/certidao-negativa-de-propriedade')
-    page.forms.second.field_with(name: 'data[CertidaoNegativaPropriedadeVeiculos][cpf]').value = @params[:cpf]
+    page.forms.second.field_with(name: 'data[CertidaoNegativaPropriedadeVeiculos][cpf]selecionar_gerar_validar').value = @params[:cpf]
     page.forms.second.field_with(name: 'data[CertidaoNegativaPropriedadeVeiculos][nomeproprietario]').value = @params[:nome]
-    page.forms.second.field_with(name: 'data[CertidaoNegativaPropriedadeVeiculos][codigo_controle]').value = @params[:selecionar_gerar_validar]
+    page.forms.second.field_with(name: 'data[CertidaoNegativaPropriedadeVeiculos][codigo_controle]').value = @params[:selecionar_gerar_validar] || '1'
+    page.forms.second.field_with(name: 'data[CertidaoNegativaPropriedadeVeiculos][selecionar_gerar_validar]').value = @params[:selecionar_gerar_validar] || '1'
     begin
       # submit the form with crawler
       page = page.forms.second.submit

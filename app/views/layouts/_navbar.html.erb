@@ -1,4 +1,3 @@
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
   <div class="container-fluid">
     <div class="navbar-wrapper">
@@ -13,14 +12,19 @@
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">
-            <i class="material-icons">notifications</i>
-            <p class="d-lg-none d-md-block">
-              Notifications
-            </p>
-          </a>
+          <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <% if current_user.present? %>
+              <i class="material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            <% else %>
+              <p class="d-md-block btn btn-primary">
+                Fazer Login
+              </p>
+            <% end %>
+          <% end %>
         </li>
-        
       </ul>
     </div>
   </div>

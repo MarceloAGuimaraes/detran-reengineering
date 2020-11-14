@@ -1,0 +1,49 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header card-header-primary">
+      <h4 class="card-title ">Meus Veículos</h4>
+    </div>
+    <div class="card-body">
+      <div class="col-md-4">
+        <%= button_to new_vehicle_path, class: "btn btn-primary", remote: true, method: :get do %>
+          Adicionar
+          <i class="material-icons">add_circle_outline</i>
+        <% end %>
+      </div>
+      <div class="table-responsive">
+        <% if @vehicles.present? %>
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>Modelo</th>
+                    <th>Placa</th>
+                    <th>Chassi</th>
+                    <th>Renavam</th>
+                    <th>Cor</th>
+                    <th>Ações</th>
+                  </thead>
+                  <tbody>
+                    <% @vehicles.each do |vehicle| %>
+                      <tr>
+                        <td><%= vehicle.model %></td>
+                        <td><%= vehicle.plate %></td>
+                        <td><%= vehicle.chassi %></td>
+                        <td><%= vehicle.renavam %></td>
+                        <td><%= vehicle.color %></td>
+                        <td class="text-primary">
+                          <%= link_to vehicle, method: :delete, 'data-turbolinks': true do %>
+                            <span class="material-icons">
+                              delete
+                            </span>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+        <% else %>
+            <h4> Ainda não existem veículos cadastrados ! </h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

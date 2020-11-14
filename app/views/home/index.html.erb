@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-10">
+    <div id="home-news" class="carousel slide" data-ride="carousel">
+      <a class="carousel-control-prev col-1" href="#home-news" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <div class="carousel-inner col-10">
+        <div class="carousel-item active">
+          <img src="data:image/png;base64,<%= @b64_images.first  %>" alt="First slide" class='d-block w-100'/>
+        </div>
+        <div class="carousel-item">
+          <img src="data:image/png;base64,<%= @b64_images.second  %>" alt="Second slide" class='d-block w-100'/>
+        </div>
+        <div class="carousel-item">
+          <img src="data:image/png;base64,<%= @b64_images.third  %>" alt="Third slide" class='d-block w-100'/>
+        </div>
+      </div>
+      <a class="carousel-control-next col-1" href="#home-news" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="card-title">Notícias</h4>
+            <% @news.each do |t_new| %>
+              <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <i class="material-icons">close</i>
+                </button>
+                <%= tag.span t_new.content, class: 'noticias-alert', data: { link: t_new.link } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,10 +13,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="dark-edition">
+  <body class="dark-edition" data-controller="application">
+    <p class="notice"><%= notice %></p>
     <main class="wrapper ">
       <%= render 'layouts/menu' %>
-      <section class="main-panel">
+      <section id="main" class="main-panel">
         <%= render 'layouts/navbar' %>
         <div class="content">
           <div class="container-fluid">
@@ -25,5 +26,17 @@
         </div>
       </section>
     </main>
+
+    <div id="record-modal" class="side-modal mdc-elevation--z3">
+      <div class="title">
+        <a id="close"><span class="material-icons">close</span></a>
+      </div>
+      <div id="record_box"></div>
+      <div id="children-content" class="side-modal-inner">
+      </div>
+    </div>
+
+    <%= yield :modal %>
+    <%= yield :javascript %>
   </body>
 </html>

@@ -7,7 +7,7 @@
         <h4> Preencha somente uma das colunas ! </h4>
       </div>
       <div class="card-body">
-        <%= simple_form_for :infractions, url: infractions_infraction_result_path, method: :get, remote: true do |f| %>
+        <%= simple_form_for :infractions, html: { id: "infraction-result-form" }, url: infractions_infraction_result_path, method: :get, remote: true do |f| %>
           <div class="row">
             <div class="col-md-10">
               <div class="form-group bmd-form-group">
