@@ -7,7 +7,7 @@ class NewsService
   end
 
   def update_text_news
-    page = @agent.get('https://www.detran.mg.gov.br/sobre-o-detran/comunicados/noticias')
+    page = @agent.get('https://acesso.detran.mg.gov.br/sobre-o-detran/comunicados/noticias')
     current_leading = page.xpath("//*[@id='conteudo']//*[@class='category']//tbody//tr")
     current_leading.each do |t|
       begin
@@ -24,7 +24,7 @@ class NewsService
 
   def update_img_news
     delete_images
-    page = @agent.get('https://www.detran.mg.gov.br/')
+    page = @agent.get('https://acesso.detran.mg.gov.br/')
     leading_index = 0
     3.times do
       begin
@@ -32,7 +32,7 @@ class NewsService
         image_url = current_leading.first.attributes['src'].to_s.gsub(' ', '%20')
         next unless image_url.present?
 
-        image_url = "https://www.detran.mg.gov.br#{image_url}"
+        image_url = "https://acesso.detran.mg.gov.br#{image_url}"
         @agent.get(image_url).save Rails.root.join("app/assets/images/img-news-#{leading_index}").to_s
         leading_index += 1
       rescue
