@@ -5,8 +5,7 @@
     </div>
     <div class="card-body">
 		<div class="row">
-      <%== @message[:message] %>
-      <% if action_name == 'negative_certificate' && @message[:status] == 200 %>
+      <% if action_name == 'negative_certificate' %>
         <%= link_to 'Gerar PDF', '', class: 'btn btn-primary link-generate-pdf', data: { cpf: @cpf } %>
       <% end %>
 		</div>
