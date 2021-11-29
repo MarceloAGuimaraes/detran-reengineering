@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_14_193429) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "licenses", force: :cascade do |t|
+  create_table "licenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "cnh_type", null: false
     t.string "cnh_number", null: false
     t.date "first_cnh_date", null: false
@@ -23,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_193429) do
     t.index ["user_id"], name: "index_licenses_on_user_id"
   end
 
-  create_table "news", force: :cascade do |t|
+  create_table "news", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "content"
     t.date "date"
     t.string "link"
@@ -32,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_193429) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
@@ -49,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_193429) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vehicles", force: :cascade do |t|
+  create_table "vehicles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "plate", null: false
     t.string "chassi", null: false
     t.string "renavam", null: false
