@@ -7,14 +7,14 @@ class NewsService
   end
 
   def update_text_news
-    page = @agent.get('https://acesso.detran.mg.gov.br/sobre-o-detran/comunicados/noticias')
-    current_leading = page.xpath("//*[@id='conteudo']//*[@class='category']//tbody//tr")
+    page = @agent.get('https://www.detran.mg.gov.br/sobre-o-detran-1/sala-de-imprensa/noticias')
+    current_leading = page.xpath("//*[@class='list-group list-group-flush']//a")
     current_leading.each do |t|
       begin
         notice = New.new
-        notice.content = t.css('td')[0].css('a').inner_text.strip!
-        notice.link = t.css('td')[0].css('a').attribute('href').value
-        notice.date = t.css('td')[1].inner_text.strip!
+        notice.content = t.css('h6').children.inner_text
+        notice.link = t.attributes["href"].value
+        notice.date = Date.today
         notice.save!
       rescue => e
         New.create(log_error: e.message)
@@ -24,15 +24,15 @@ class NewsService
 
   def update_img_news
     delete_images
-    page = @agent.get('https://acesso.detran.mg.gov.br/')
+    page = @agent.get('https://detran.mg.gov.br/')
     leading_index = 0
     3.times do
       begin
-        current_leading = page.xpath("//*[@class='items-leading']//*[@class='leading-#{leading_index}']//p//a//img")
-        image_url = current_leading.first.attributes['src'].to_s.gsub(' ', '%20')
+        current_leading = page.xpath("//*[@class='icone-rodape img-fluid']")[leading_index]
+        image_url = current_leading.attr("src").to_s.gsub(' ', '%20')
         next unless image_url.present?
 
-        image_url = "https://acesso.detran.mg.gov.br#{image_url}"
+        image_url = "https://detran.mg.gov.br#{image_url}"
         @agent.get(image_url).save Rails.root.join("app/assets/images/img-news-#{leading_index}").to_s
         leading_index += 1
       rescue
